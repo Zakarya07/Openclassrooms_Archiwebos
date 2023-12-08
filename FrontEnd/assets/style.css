@@ -216,6 +216,7 @@ li:hover {
   width: 100%;
 }
 
+
 /* Filters */
 div.filters {
   margin: 3em auto;
@@ -223,7 +224,6 @@ div.filters {
   justify-content: center;
   gap: 10px;
 }
-
 div.filters button {
     color: #1d6154;
     background: transparent;
@@ -288,4 +288,16 @@ footer nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 2em;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out 1 both;
+}
+@keyframes fadeIn  {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+  opacity:100% ;
+  }
 }
