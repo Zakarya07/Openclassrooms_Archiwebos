@@ -23,12 +23,6 @@ form input:not(input[type="submit"]) {
     padding: 10px 5px;
 }
 
-/* Password forget */
-form + a {
-    color: black;
-    text-decoration: underline 2px #919191;
-}
-
 /* Submit button */
 form input[type="submit"] {
     padding: 10px 15px;
@@ -42,6 +36,18 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
    background-color:black;
 }
+/* Error message  */
+form + p.error-displaying {
+    color: rgb(255, 0, 0);
+}
+
+/* Password forget */
+form + a {
+    color: black;
+    text-decoration: underline 2px #919191;
+}
+
+
 
 /* Responsive */
 

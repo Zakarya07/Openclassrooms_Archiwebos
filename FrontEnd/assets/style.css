@@ -132,8 +132,6 @@ table {
 }
 /** end reset css**/
 body {
-  max-width: 1140px;
-  margin: auto;
   font-family: "Work Sans";
   font-size: 14px;
 }
@@ -167,6 +165,24 @@ h2 {
   font-size: 30px;
   color: #1d6154;
 }
+
+.wrapper {
+  max-width: 1140px;
+  margin: auto;
+}
+/* Edition Mode */
+.edition-mode {
+  height: 60px;
+  background: black;
+  color: white;
+  margin-bottom: 30px;
+  place-items: center;
+  background-position: 0% 0%;
+  background-size: 100% 100%;
+  animation: gradientAnimation 30s infinite linear alternate;
+  display: none;
+}
+
 nav ul {
   display: flex;
   align-items: center;
@@ -190,7 +206,6 @@ nav ul li a:hover {
 nav ul li:last-child img {
   height: 30px;
 }
-
 #introduction {
   display: flex;
   align-items: center;
@@ -203,7 +218,6 @@ nav ul li:last-child img {
   margin: auto;
   width: 80%;
 }
-
 #introduction article {
   flex: 1;
 }
@@ -214,9 +228,31 @@ nav ul li:last-child img {
 #introduction p {
   margin-bottom: 0.5em;
 }
+.modify-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  padding: 15px;
+  margin: 55px auto;
+}
+/* Modify button */
+.modify-button-container button {
+  border: none;
+  background-color: transparent;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: none;
+}
+.modify-button-container button:hover {
+  transform: scale(1.1);
+  background-color: #075748;
+  color: #d95a10;
+}
 #portfolio h2 {
   text-align: center;
-  margin-bottom: 1em;
 }
 .gallery {
   width: 100%;
@@ -225,7 +261,6 @@ nav ul li:last-child img {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 }
-
 .gallery img {
   width: 100%;
 }
@@ -248,7 +283,6 @@ div.filters button {
   cursor: pointer;
   transition: all 0.2s linear;
 }
-
 div.filters button:is(.active, :hover) {
   color: white;
   background-color: #1d6154;
@@ -311,5 +345,18 @@ footer nav ul {
   }
   100% {
     opacity: 100%;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(150deg, #703b1b, black, #135347);
+    background-position: 0% 0%;
+    background-size: 1000% 1000%;
+  }
+  100% {
+    background: linear-gradient(150deg, #703b1b, black, #135347);
+    background-position: 100% 100%;
+    background-size: 1000% 1000%;
   }
 }

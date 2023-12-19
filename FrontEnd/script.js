@@ -1,5 +1,20 @@
 const gallery = document.querySelector(".gallery");
 const filters_container = document.querySelector(".filters");
+const modify_button = document.querySelector(".modify-button-container button");
+const edition_mode_band = document.querySelector(".edition-mode")
+
+const token = window.localStorage.getItem("token");
+
+  if (token) {
+    modify_button.style.display = "block";
+    edition_mode_band.style.display = "grid";
+  } else {
+    alert('No token')
+  }
+
+  modify_button.addEventListener("click", function (event) {
+    alert("OPEN THE MODAL")
+  })
 
 // ----------------------------------------------------- WORKS
 

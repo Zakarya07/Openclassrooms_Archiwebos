@@ -15,11 +15,12 @@
     <link rel="stylesheet" href="./login.css" />
 
     <!-- JavaScript -->
-    <script type="module" defer src="./script.js"></script>
+    <script type="module" defer src="./login.js"></script>
+
   </head>
 
   <body>
-    <header>
+    <header class="wrapper">
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
         <ul>
@@ -31,11 +32,11 @@
       </nav>
     </header>
 
-    <main>
+    <main class="wrapper">
       <div class="form-container">
         <h2>Log in</h2>
 
-        <form action="">
+        <form id="login-form">
           <label for="email">E-mail</label>
           <input type="email" name="email" id="email" />
           <label for="password">Mot de passe</label>
@@ -43,11 +44,13 @@
           <input type="submit" value="Se connecter" />
         </form>
 
+        <p class="error-displaying"></p>
+
         <a href="#">Mot de passe oublié</a>
       </div>
     </main>
 
-    <footer>
+    <footer class="wrapper">
       <nav>
         <ul>
           <li>Mentions Légales</li>
