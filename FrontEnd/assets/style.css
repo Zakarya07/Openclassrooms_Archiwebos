@@ -2,6 +2,13 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+:root {
+  --primary-color: #1d6154;
+  --secondary-color: #b1663c;
+}
+* {
+  box-sizing: border-box;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -138,22 +145,26 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  margin: 50px 0;
+  margin-top: 50px !important;
 }
 section {
   margin: 50px 0;
 }
 
-h1 {
-  display: flex;
-  flex-direction: column;
+header h1 {
   font-family: "Syne";
   font-size: 22px;
   font-weight: 800;
-  color: #b1663c;
+  color: var(--secondary-color);
+}
+header h1 a {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
 }
 
-h1 > span {
+header h1 a > span {
   font-family: "Work Sans";
   font-size: 10px;
   letter-spacing: 0.1em;
@@ -163,7 +174,7 @@ h2 {
   font-family: "Syne";
   font-weight: 700;
   font-size: 30px;
-  color: #1d6154;
+  color: var(--primary-color);
 }
 
 .wrapper {
@@ -179,7 +190,7 @@ h2 {
   place-items: center;
   background-position: 0% 0%;
   background-size: 100% 100%;
-  animation: gradientAnimation 30s infinite linear alternate;
+  animation: gradientAnimation 50s 25s infinite linear alternate;
   display: none;
 }
 
@@ -200,7 +211,7 @@ nav ul li a {
   display: inline-block;
 }
 nav ul li a:hover {
-  color: #b1663c;
+  color: var(--secondary-color);
   transform: scale(1.1);
 }
 nav ul li:last-child img {
@@ -228,6 +239,37 @@ nav ul li:last-child img {
 #introduction p {
   margin-bottom: 0.5em;
 }
+
+/* _______ Category filters */
+div.filters {
+  margin: 3em auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+div.filters button {
+  color: var(--primary-color);
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  font-family: "Syne";
+  padding: 7px 15px;
+  border-radius: 25px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+div.filters button:is(.active, :hover) {
+  color: white;
+  background-color: var(--primary-color);
+}
+
+/* _______________________________ Projects Gallery */
+
+#portfolio h2 {
+  text-align: center;
+}
+
+/*   Modify button (open the modal) */
 .modify-button-container {
   display: flex;
   justify-content: center;
@@ -236,7 +278,7 @@ nav ul li:last-child img {
   padding: 15px;
   margin: 55px auto;
 }
-/* Modify button */
+
 .modify-button-container button {
   border: none;
   background-color: transparent;
@@ -251,9 +293,138 @@ nav ul li:last-child img {
   background-color: #075748;
   color: #d95a10;
 }
-#portfolio h2 {
-  text-align: center;
+
+/* ______________________ Modal */
+
+/* Modal container */
+#modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  display: none;
+  visibility: hidden;
+  z-index: 1000;
 }
+
+#modal-container.active {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+#modal-container > .modal {
+  background-color: white;
+  padding: 55px 80px;
+  border-radius: 10px;
+  position: relative;
+  min-width: 35vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal h3 {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Close button */
+.close { 
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  transition: all .2s linear;
+}
+.close i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+}
+
+.close:hover {
+  border: 2px solid var(--secondary-color);
+}
+
+/* Modal content */
+.modal-content {
+  padding-bottom: 50px;
+  border-bottom: 2px solid #b3b3b3;
+}
+
+.modal-project-container {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: minmax(100px, 130px);
+  gap: 20px 10px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.modal-project-container .project {
+  position: relative;
+}
+
+.modal-project-container .project .project-delete-button {
+  color: white;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  padding:2px;
+  cursor: pointer;
+}
+.modal-project-container .project .project-delete-button:hover i {
+  background-color: rgb(201, 0, 0);
+}
+
+.modal-project-container .project .project-delete-button i {
+  transition: all .2s linear;
+  border-radius: 4px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1em;
+  height: 25px;
+  width: 25px;
+}
+.modal-project-container .project img {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Add project button */
+button#add-project-button {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: var(--primary-color);
+  margin: 2em auto;
+  text-align: center;
+  border-radius: 60px;
+  border: none;
+  font-size: 1.1em;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+
+/* _______________ Gallery */
 .gallery {
   width: 100%;
   display: grid;
@@ -263,29 +434,6 @@ nav ul li:last-child img {
 }
 .gallery img {
   width: 100%;
-}
-
-/* Filters */
-div.filters {
-  margin: 3em auto;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-div.filters button {
-  color: #1d6154;
-  background: transparent;
-  border: 1px solid #1d6154;
-  font-family: "Syne";
-  padding: 7px 15px;
-  border-radius: 25px;
-  font-size: 1.1em;
-  cursor: pointer;
-  transition: all 0.2s linear;
-}
-div.filters button:is(.active, :hover) {
-  color: white;
-  background-color: #1d6154;
 }
 
 #contact {
@@ -323,7 +471,7 @@ input[type="submit"] {
   font-family: "Syne";
   font-weight: 700;
   color: white;
-  background-color: #1d6154;
+  background-color: var(--primary-color);
   margin: 2em auto;
   width: 180px;
   text-align: center;
@@ -350,12 +498,12 @@ footer nav ul {
 
 @keyframes gradientAnimation {
   0% {
-    background: linear-gradient(150deg, #703b1b, black, #135347);
+    background: linear-gradient(150deg, black, #703b1b, black, #135347);
     background-position: 0% 0%;
     background-size: 1000% 1000%;
   }
   100% {
-    background: linear-gradient(150deg, #703b1b, black, #135347);
+    background: linear-gradient(150deg, black, #703b1b, black, #135347);
     background-position: 100% 100%;
     background-size: 1000% 1000%;
   }

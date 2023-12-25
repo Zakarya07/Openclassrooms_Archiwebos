@@ -3,6 +3,7 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const error_displaying = document.querySelector("form + p.error-displaying");
 
+
 const USER_EMAIL = "sophie.bluel@test.tld";
 const USER_PASSWORD = "S0phie";
 
@@ -18,12 +19,13 @@ submit_button.addEventListener("click", async (event) => {
   if ( form_inputs.email.trim() !== "" && form_inputs.password.trim() !== "" ) {
 
     if ( form_inputs.email.trim() !== USER_EMAIL ) {
-      error_displaying.textContent = "Erreur dans l'identifiant ou le mot de passe";
+      error_displaying.textContent = "Erreur dans l'identifiant";
       email.focus();
     } else if ( form_inputs.password.trim() !== USER_PASSWORD ) {
-      error_displaying.textContent = "Erreur dans l'identifiant ou le mot de passe";
+      error_displaying.textContent = "Erreur dans le mot de passe";
       password.focus();
     } 
+  
     
     if(form_inputs.email.trim() === USER_EMAIL && form_inputs.password.trim() === USER_PASSWORD){
       try {
@@ -44,6 +46,8 @@ submit_button.addEventListener("click", async (event) => {
       } catch ( error ) {
         console.error("Erreur lors de l'envoi de la requête:", error);
       }
+    } else if (form_inputs.email.trim() !== USER_EMAIL && form_inputs.password.trim() !== USER_PASSWORD) {
+      error_displaying.textContent = "Erreur dans l'identifiant ou le mot de passe";
     }
 
   } else {

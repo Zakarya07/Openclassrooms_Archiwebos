@@ -24,10 +24,16 @@
   </head>
 
   <body>
-    <div class="edition-mode"><p><i class="fa-regular fa-pen-to-square"></i> Mode édition</p></div>
+    <div class="edition-mode">
+      <p><i class="fa-regular fa-pen-to-square"></i> Mode édition</p>
+    </div>
 
     <header class="wrapper">
-      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+      <h1>
+        <a href="./index.html"
+          >Sophie Bluel <span>Architecte d'intérieur</span></a
+        >
+      </h1>
       <nav>
         <ul>
           <li><a href="#portfolio">projets</a></li>
@@ -62,17 +68,47 @@
           </p>
         </article>
       </section>
+
       <section id="portfolio">
         <div class="modify-button-container">
           <h2>Mes Projets</h2>
-          <button type="button"><i class="fa-regular fa-pen-to-square"></i> modifier</button>
+          <button type="button">
+            <i class="fa-regular fa-pen-to-square"></i> modifier
+          </button>
         </div>
         <!-- Filters section -->
         <div class="filters">
           <button class="all active">Tous</button>
         </div>
-        <div class="gallery"></div>
+
+        <!-- Modal -->
+        <div id="modal-container" class="modal-container">
+          <div class="modal">
+            <h3>Galerie photo</h3>
+
+            <!-- Close button -->
+            <span class="close"><i class="fa-solid fa-xmark"></i></span>
+
+            <!-- Modal content -->
+            <div class="modal-content">
+
+              <div class="modal-project-container">
+                <!-- Here the projects view from the modal -->
+              </div>
+              
+            </div>
+            
+            <button type="button" id="add-project-button">
+              Ajouter une photo
+            </button>
+          </div>
+        </div>
+        <!-- Projects gallery Container -->
+        <div class="gallery">
+          <!-- Here the projects view-->
+        </div>
       </section>
+
       <section id="contact">
         <h2>Contact</h2>
         <p>Vous avez un projet ? Discutons-en !</p>
