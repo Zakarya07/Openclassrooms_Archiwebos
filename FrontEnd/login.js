@@ -51,7 +51,7 @@ submit_button.addEventListener("click", async (event) => {
     }
 
   } else {
-    error_displaying.textContent = "Erreur! Veillez à remplir tout les champs pour pouvoir continuer.";
+    error_displaying.textContent = "Erreur ! Veuillez remplir tout les champs pour pouvoir continuer.";
   }
 
 });

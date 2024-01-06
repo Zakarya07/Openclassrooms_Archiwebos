@@ -76,32 +76,84 @@
             <i class="fa-regular fa-pen-to-square"></i> modifier
           </button>
         </div>
-        <!-- Filters section -->
+        <!-- ____________________________Filters section -->
         <div class="filters">
           <button class="all active">Tous</button>
         </div>
 
-        <!-- Modal -->
+        <!-- __________________________ Modal -->
         <div id="modal-container" class="modal-container">
+
+          <!-- Gallery of projects -->
           <div class="modal">
-            <h3>Galerie photo</h3>
 
-            <!-- Close button -->
-            <span class="close"><i class="fa-solid fa-xmark"></i></span>
+               <!-- Close button -->
+               <span class="close"><i class="fa-solid fa-xmark"></i></span>
 
-            <!-- Modal content -->
-            <div class="modal-content">
+            <!-- Modal gallery -->
+            <div class="modal-gallery">
+              <h3>Galerie photo</h3>
 
-              <div class="modal-project-container">
-                <!-- Here the projects view from the modal -->
+              <!-- Modal content -->
+              <div class="modal-content">
+                <div class="modal-project-container">
+                  <!-- Here the projects view from the modal -->
+                </div>
+              </div>
+
+              <button type="button" id="add-project-button">Ajouter une photo</button>
+            </div>
+
+
+          <!-- Add project form -->
+          <div class="modal-form">
+
+            <h3>Ajout photo</h3>
+
+            <!-- Form -->
+            <form id="add-project-form">
+
+              <!-- File image -->
+              <div class="img-file-upload-container">
+                <i class="fa-regular fa-image"></i>
+                <label for="imageInput" class="file-upload">
+                  <input id="imageInput" type="file" name="image"/>
+                  + Ajouter photo
+                </label>
+                <span>jpg, png: 4mo max</span>
+              </div>
+
+              <!-- Title -->
+              <div class="title">
+                <label for="title">Titre</label>
+                <input type="text" id="title" name="title" />
               </div>
               
-            </div>
+              <!-- Categories -->
+              <div class="categories-container">
+                <label for="category">Catégorie</label>
+                <select id="category" name="category">
+                  <option selected disabled hidden>Sélectionner une catégorie</option>
+                </select>
+              </div>
+
+              <hr>
+
+              <p class="form-error"></p>
+
+              <!-- Submit button -->
+              <button type="submit">Valider</button>
+
+            </form>
             
-            <button type="button" id="add-project-button">
-              Ajouter une photo
-            </button>
+            <button type="button" id="back-to-gallery"><i class="fa-solid fa-arrow-left"></i></button>
+
           </div>
+
+          </div>
+
+          </div>
+
         </div>
         <!-- Projects gallery Container -->
         <div class="gallery">
