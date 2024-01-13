@@ -3,7 +3,6 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const error_displaying = document.querySelector("form + p.error-displaying");
 
-
 const USER_EMAIL = "sophie.bluel@test.tld";
 const USER_PASSWORD = "S0phie";
 
@@ -14,7 +13,6 @@ submit_button.addEventListener("click", async (event) => {
     email: email.value,
     password: password.value,
   };
-  console.log(form_inputs);
 
   if ( form_inputs.email.trim() !== "" && form_inputs.password.trim() !== "" ) {
 
@@ -26,7 +24,6 @@ submit_button.addEventListener("click", async (event) => {
       password.focus();
     } 
   
-    
     if(form_inputs.email.trim() === USER_EMAIL && form_inputs.password.trim() === USER_PASSWORD){
       try {
         const response = await fetch("http://localhost:5678/api/users/login", {
