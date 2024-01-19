@@ -10,6 +10,7 @@ import { previewFile } from "./modules/preview_file.js";
 const gallery = document.querySelector(".gallery");
 const modify_button = document.querySelector(".modify-button-container button");
 const edition_mode_band = document.querySelector(".edition-mode");
+const filters = document.querySelector(".filters");
 const logout_button = document.querySelector("nav ul li:nth-of-type(3) a");
 const modal_container = document.querySelector("#modal-container");
 const modal_project_container = document.querySelector(
@@ -34,6 +35,7 @@ const token = window.localStorage.getItem("token");
 if (token) {
   modify_button.style.display = "block";
   edition_mode_band.style.display = "grid";
+  filters.style.display = "none";
   logout_button.textContent = "logout";
 
   logout_button.addEventListener("click", (event) => {
